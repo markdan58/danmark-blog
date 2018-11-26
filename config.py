@@ -13,3 +13,16 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://danmark:5898danmark@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
+
+
+
+class ProdConfig(Config):
+    '''
+    This is the production configuration child class
+    
+    Args:
+        Config: The parent configuration class with the general config settings
+    '''
+   
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    
