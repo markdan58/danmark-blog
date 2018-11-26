@@ -54,3 +54,10 @@ def profile(uname):
         abort(404)
 
     return render_template("Profile/profile.html", user = user)
+
+
+
+    @main.route('/comments/<int:id>', methods = ['GET','POST'])
+def comment(id):
+    comments = Comment.query.filter_by(Newblog_id=id).all()
+    return render_template('comments.html', comments=comments)
