@@ -2,9 +2,11 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
+<div class="container">
+    {{wtf.quick_form(comment_form)}}
+    {% for blogs in Newblog %}
 
-{{wtf.quick_form(comment_form)}}
-{% for blogs in Newblog %}
+</div>
 
 
 <div class="container">

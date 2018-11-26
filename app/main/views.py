@@ -58,6 +58,7 @@ def profile(uname):
 
 
 @main.route('/comments/<int:id>', methods = ['GET','POST'])
+@login_required
 def comment(id):
     comments = Comment.query.filter_by(Newblog_id=id).all()
     return render_template('comments.html', comments=comments)
@@ -65,6 +66,7 @@ def comment(id):
 
 
 @main.route('/post/comments/new/<int:id>', methods = ['GET', 'POST'])
+@login_required
 def new_comment(id):
     form = CommentsForm()
 
@@ -81,6 +83,7 @@ def new_comment(id):
 
 
 @main.route('/', methods = ['GET','POST'])
+@login_required
 def new_blog():
     form = BlogForm()
     posts = Newblog.query.all()
@@ -93,3 +96,26 @@ def new_blog():
         return redirect("/")
 
     return render_template('blogs.html', Newblog_form = form, posts=posts)
+
+
+
+@main.route("/sports")
+def sports():
+    return render_template('sports.html', title = 'sports')
+
+@main.route("/contactme")
+def contactme():
+    return render_template('contactme.html', title = 'contactme')
+
+@main.route("/education")
+def education():
+    return render_template('education.html', title = 'education')
+
+@main.route("/interests")
+def interests():
+    return render_template('interests.html', title = 'interests')
+
+@main.route("/vision")
+def vision():
+    return render_template('vision.html', title = 'vision')
+
