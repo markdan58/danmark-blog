@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+</head>
+
+<div class="container">
+
+    <nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="{{url_for('main.profile',uname=current_user.username)}}{{current_user.username}}" class="nav-links">Profile</a>
+            </li>
+            <li>
+                <a href="sports.html" class="nav-links">Sports</a>
+            </li>
+            <li>
+                <a href="contactme.html" class="nav-links">Contact Me</a>
+            </li>
+            <li>
+                <a href="education.html" class="nav-links">Education</a>
+            </li>
+            <li>
+                <a href="interests.html" class="nav-links">Interests</a>
+            </li>
+            <li>
+                <a href="vision.html" class="nav-links">Vision</a>
+            </li>
+            <li>
+                <a href="{{url_for('auth.login')}}" class="nav-links">Log in</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        {{wtf.quick_form(Newblog_form)}}
+    </div>
+
+    {% for post in posts %}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="table-container">
+                <table class="table table-filter">
+                    <tbody>
+                        <tr data-status="pagado">
+                            <td>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h1 class="title">{{post.title}}</h1>
+                                        <h4 class="Content">{{ post.actual_blog }}..</h4>
+                                        <a href="/comments/{{post.id}}" class="btn btn-primary">Comments</a>
+                                        <a class="btn btn-success text-center" href="/post/comments/new/{{post.id}}">Add
+                                            Comment</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
