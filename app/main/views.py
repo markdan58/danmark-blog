@@ -77,3 +77,19 @@ def new_comment(id):
 
     title = ' comment'
     return render_template('new_comment.html',title = title, comment_form=form)
+
+
+
+@main.route('/', methods = ['GET','POST'])
+def new_blog():
+    form = BlogForm()
+    posts = Newblog.query.all()
+
+    if form.validate_on_submit():
+        title = form.title.data
+        New_Post = form.content.data
+        new_blog = Newblog(actual_blog=New_Post, title=title)
+        new_blog.save_Newbolg()
+        return redirect("/")
+
+    return render_template('blogs.html', Newblog_form = form, posts=posts)
