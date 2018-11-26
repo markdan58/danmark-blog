@@ -61,3 +61,30 @@ class Comment(db.Model):
     comments = db.Column(db.String(255))
     date_created = db.Column(db.Date, default=datetime.now)
     Newblog_id = db.Column(db.Integer, db.ForeignKey("Newblog.id"))
+
+
+
+
+class Newblog(db.Model):
+    '''
+    Class pitch that defines the tables in the pitch database
+    '''
+
+    newblog_list = []
+    __tablename__ = 'Newblog'
+
+    id = db.Column(db.Integer,primary_key = True)
+    actual_blog = db.Column(db.String(255))
+    vote_count = db.Column(db.String)
+    title = db.Column(db.String(255))
+    published_On = db.Column(db.Date, default=datetime.now)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    Newblog = db.relationship('Comment',backref = 'Newblog',lazy = "dynamic")
+
+
+    '''
+    Function that saves new created pitches
+    '''
+    def save_Newbolg(self):
+        db.session.add(self)
+        db.session.commit()
