@@ -29,3 +29,35 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+
+
+class Role(db.Model):
+    __tablename__ = 'roles'
+
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic")
+
+
+    def __repr__(self):
+        return f'User {self.name}'
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+
+class Comment(db.Model):
+    '''
+    Class Comments for the Comments column
+    '''
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    comments = db.Column(db.String(255))
+    date_created = db.Column(db.Date, default=datetime.now)
+    Newblog_id = db.Column(db.Integer, db.ForeignKey("Newblog.id"))
