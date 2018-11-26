@@ -21,3 +21,9 @@ class BlogForm(FlaskForm): #create a class that inherits from FlaskForm class
     content = TextAreaField('New blog', validators=[Required()])
     title = StringField('Blog title',validators=[Required()])
     submit = SubmitField('Submit')
+
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us about you.',validators = [Required()])
+    submit = SubmitField('Submit')
+    
