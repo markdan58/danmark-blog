@@ -39,3 +39,13 @@ class DevConfig(Config):
         Config the parent configuration class with the general config settings
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://danmark:5898danmark@localhost/blog'
+
+
+
+    DEBUG = True
+
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig,
+    'test':TestConfig
+}
