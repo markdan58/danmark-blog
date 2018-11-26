@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>COMMENTS</h1>
+    </div>
+    {% for comment in comments %}
+    <div class="panel panel-default">
+        <div class="table-container">
+            <table class="table table-filter">
+                <tbody>
+                    <tr data-status="pagado">
+                        <td>
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="title">
+                                        {{comment.comments}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{% endblock %}
