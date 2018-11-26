@@ -57,7 +57,23 @@ def profile(uname):
 
 
 
-    @main.route('/comments/<int:id>', methods = ['GET','POST'])
+@main.route('/comments/<int:id>', methods = ['GET','POST'])
 def comment(id):
     comments = Comment.query.filter_by(Newblog_id=id).all()
     return render_template('comments.html', comments=comments)
+
+
+
+@main.route('/post/comments/new/<int:id>', methods = ['GET', 'POST'])
+def new_comment(id):
+    form = CommentsForm()
+
+    if form.validate_on_submit():
+        new_comment = Comment(Newblog_id=id, comments=form.comments.data)
+
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect("/")
+
+    title = ' comment'
+    return render_template('new_comment.html',title = title, comment_form=form)
