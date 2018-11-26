@@ -15,3 +15,9 @@ class CommentsForm(FlaskForm):
 class ContentForm(FlaskForm):
     content = TextAreaField('YOUR BLOG')
     submit = SubmitField('SUBMIT')
+
+
+class BlogForm(FlaskForm): #create a class that inherits from FlaskForm class
+    content = TextAreaField('New blog', validators=[Required()])
+    title = StringField('Blog title',validators=[Required()])
+    submit = SubmitField('Submit')
