@@ -11,3 +11,7 @@ from .. import db
 class CommentsForm(FlaskForm):
     comments = TextAreaField('Newblog Comments', validators=[Required()])
     submit = SubmitField('Submit')
+
+class ContentForm(FlaskForm):
+    content = TextAreaField('YOUR BLOG')
+    submit = SubmitField('SUBMIT')
