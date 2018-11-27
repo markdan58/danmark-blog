@@ -1,8 +1,8 @@
 # Danmark Blog Project
 #### The Blog Application is one which allows one to authenticate himself then view other peoples blogs then add comments to ones blog. One can also create and post blog.
 
-#### The live link to Pitch-Project is :
-https://project-pitchdan.herokuapp.com/
+#### The live link to Blog-Project is :
+
 ## Installation Requirements
 * A web browser
 * A virtual environment
@@ -11,7 +11,7 @@ https://project-pitchdan.herokuapp.com/
 * Terminal if you want to access the app locally through your computer
 
 #### Installation
-* Clone or download the the app from this link https://project-pitchdan.herokuapp.com/
+* Clone or download the the app from this 
 * Install a virtual environment in your project folder by running the following commands.
 * To activate the virtual environment run `$ source virtual/bin/activate`
 * To install Flask,run the following command `$ source virtual/bin/activate` then `python3.6 -m pip install flask`
@@ -28,7 +28,7 @@ https://project-pitchdan.herokuapp.com/
 * Bootstrap
 
 ## Support and contact details
-For assistance and Queries please create an issue.
+For assistance reach me on github.
 
 ### License
 This application uses the MIT licence
