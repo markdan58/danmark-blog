@@ -27,7 +27,7 @@ Mako==1.0.7
 MarkupSafe==1.0
 onboard==1.2.0
 pexpect==4.0.1
-Pillow==3.1.2
+Pillow==9.0.0
 psycopg2==2.7.3.1
 ptyprocess==0.5
 pycups==1.9.73
